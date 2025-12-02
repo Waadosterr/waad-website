@@ -1,0 +1,71 @@
+body {
+  background-color:gray;
+  font-family: Cairo;
+  color: #fff;
+}
+
+h1 {
+  text-decoration-line: underline;
+}
+h2 {
+  text-decoration-line: line-through;
+}
+h3 {
+  text-decoration-line: underline;
+}
+p {
+  text-decoration-line: underline;
+}
+ body {
+      text-align: center;
+      font-family: Arial;
+      color:gold;
+      font-size: 30px;
+    }
+    input {
+      padding: 25px;
+      font-size: 25px;
+    }
+    button {
+      padding: 25px 30px;
+      font-size: 25px;
+}
+
+
+header {
+  text-align: left;
+  font-family: arial;
+  font-size: 60px;
+  color: aqua ;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+h1{
+  color: darkred;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: center;
+}body {
+  text-align: center;
+  font-family: ;
+  margin-top: 50px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#message {
+  font-size: 20px;
+  margin-top: 20px;
+}
+DIV {
+  text-align: left;
+  text-size-adjust: 35px;
+  color: red;
+}
