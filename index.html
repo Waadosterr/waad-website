@@ -1,71 +1,83 @@
 <!DOCTYPE html>
-
-
 <html>
 
-
-  <head>
-    <!-- linkking to css file -->
-    <link rel="stylesheet" href="./style.css" />
-
-    <!-- js code link -->
-    <link rel="script" href="./script.js" />
-    <title>waad</title>
-  </head>
-
-
-
-    <h1>
-      This paragraph will be an introduction of what ill be trying to create
-    </h1>
-
-
-  <body>
-
-    <hr/>
-      Hello in this code ill be trying to create a guesing the number game ill
-      be using w3 schools.
-
-<HR>
-
-
-<DIV>Whats W3 schools?</DIV>
-    
-
-<p>
-      w3 schools is a website that teaches you how to code. not with one
-      language biut with all the coding langauges it also helps teach you how to
-      code and explains to you what the code means.
-</p>>
-    
-<hr />
-
-
-<header>Enjoy my game</header>
-
-
-
-<p>
-    This game is a fun but weird game this computer will think of a random number and you
-     need to guess the exact same number this computwr is tyhinking off
-</p>
-
-
 <head>
-  <title>Guess the Number</title>
+  <title>Waad’s Coding Page</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- JS -->
   <script src="script.js" defer></script>
 </head>
 
+<body>
 
-  <h1>Guess the Number!</h1>
-  <p>this pc is thinking of a number between 1 and 200</p>
+  <h1>This paragraph will be an introduction of what I’m trying to create</h1>
 
-  <input id="guessInput" type="number" placeholder="Enter your guess">
-  <button id="guessBtn">Guess</button>
+  <p>
+    Hello, in this code I’ll be trying to create a guessing-the-number game.
+    I used W3Schools to help me learn.
+  </p>
 
-  <p id="message"></p>
-<button id="resetBtn">Reset Game</button>
+  <hr style="width: 80%;">
+
+  <div class="box">
+    <h2>What is W3Schools?</h2>
+    <p>
+      W3Schools is a website that teaches coding in a simple way.  
+      It shows examples, gives tutorials, and explains each part step by step.  
+      It is easy for beginners and perfect for young developers.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>About Me</h2>
+    <p>
+      I am a young developer learning how to code.  
+      I want to get better at making websites, games, and fun projects.  
+      This page is one of the things I created while practicing.
+    </p>
+  </div>
+
+  <div class="box">
+    <div class="subheading">Enjoy My Game</div>
+
+    <p>
+      This computer is thinking of a number between <b>1 and 200</b>.  
+      Try to guess the exact number. Good luck!
+    </p>
+
+    <input id="guessInput" type="number" placeholder="Enter your guess">
+    <br>
+    <button id="guessBtn">Guess</button>
+
+    <p id="message"></p>
+
+    <button id="resetBtn">Reset Game</button>
+  </div>
+
+  <!-- To-Do List Section -->
+  <div class="todo-box">
+    <h2>My To-Do List</h2>
+
+    <div id="namePrompt" style="margin-bottom:10px;">
+      <label>What is your name? </label>
+      <input type="text" id="userName" placeholder="Enter your name">
+      <button id="saveNameBtn">Submit</button>
+    </div>
+
+    <div id="todoContent" style="display:none;">
+      <input type="text" id="newTodo" placeholder="Add a new to-do">
+      <button id="addTodoBtn">Add</button>
+      <button id="resetTodoBtn">Reset</button>
+
+      <ul id="todoList"></ul>
+    </div>
+  </div>
 
 </body>
 </html>

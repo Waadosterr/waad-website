@@ -1,34 +1,92 @@
-// Make a random number between 1 and 20
+// -------- Guessing Game ----------
 let secretNumber = Math.floor(Math.random() * 200) + 1;
 
-// Find the guess button
 document.getElementById("guessBtn").addEventListener("click", checkGuess);
-
-// Find the reset button (we’ll add it in HTML)
-document.getElementById("resetBtn").addEventListener("click", function() {
-  secretNumber = Math.floor(Math.random() * 200) + 1; // new secret number
-  document.getElementById("message").textContent = "Game reset! Make a new guess.";
-  document.getElementById("guessInput").value = ""; // clear input
-});
+document.getElementById("resetBtn").addEventListener("click", resetGame);
 
 function checkGuess() {
   let guess = Number(document.getElementById("guessInput").value);
-  let difference = Math.abs(secretNumber - guess); // difference between guess and secret
+  let message = document.getElementById("message");
+  let diff = Math.abs(secretNumber - guess);
+
+  if (!guess) {
+    message.textContent = "Please enter a number.";
+    return;
+  }
 
   if (guess === secretNumber) {
-    document.getElementById("message").textContent = "Correct! You win!";
-  } 
-  else if (difference === 10) {
-    if (guess > secretNumber) document.getElementById("message").textContent = "Just a little high!";
-    else document.getElementById("message").textContent = "Just a little low!";
-  } 
-  else if (guess > secretNumber) {
-    document.getElementById("message").textContent = "Too high!";
-  } 
-  else {
-    document.getElementById("message").textContent = "Too low!";
+    message.textContent = "Correct! You win!";
+  } else if (diff <= 5) {
+    message.textContent = "Very close!";
+  } else if (guess > secretNumber) {
+    message.textContent = "Too high!";
+  } else {
+    message.textContent = "Too low!";
   }
 }
-import { neon } from '@netlify/neon';
-const sql = neon(); // automatically uses env NETLIFY_DATABASE_URL
-const [post] = await sql`SELECT * FROM posts WHERE id = ${postId}`;
+
+function resetGame() {
+  secretNumber = Math.floor(Math.random() * 200) + 1;
+  document.getElementById("message").textContent = "Game reset!";
+  document.getElementById("guessInput").value = "";
+}
+
+// -------- To-Do List ----------
+let userName = "";
+const namePrompt = document.getElementById("namePrompt");
+const todoContent = document.getElementById("todoContent");
+const todoListEl = document.getElementById("todoList");
+const newTodoInput = document.getElementById("newTodo");
+
+document.getElementById("saveNameBtn").addEventListener("click", () => {
+  const nameInput = document.getElementById("userName").value.trim();
+  if (!nameInput) return alert("Please enter your name");
+  userName = nameInput;
+  namePrompt.style.display = "none";
+  todoContent.style.display = "block";
+  loadTodos();
+});
+
+document.getElementById("addTodoBtn").addEventListener("click", () => {
+  const todo = newTodoInput.value.trim();
+  if (!todo) return;
+  addTodo(todo);
+  newTodoInput.value = "";
+});
+
+document.getElementById("resetTodoBtn").addEventListener("click", () => {
+  if (confirm("Are you sure you want to reset your to-do list?")) {
+    localStorage.removeItem("todos_" + userName);
+    loadTodos();
+  }
+});
+
+function getTodos() {
+  const todos = localStorage.getItem("todos_" + userName);
+  return todos ? JSON.parse(todos) : [];
+}
+
+function saveTodos(todos) {
+  localStorage.setItem("todos_" + userName, JSON.stringify(todos));
+}
+
+function loadTodos() {
+  const todos = getTodos();
+  todoListEl.innerHTML = "";
+  if (todos.length === 0) {
+    todoListEl.innerHTML = "<li>No to-dos yet.</li>";
+  } else {
+    todos.forEach(todo => {
+      const li = document.createElement("li");
+      li.textContent = todo;
+      todoListEl.appendChild(li);
+    });
+  }
+}
+
+function addTodo(todo) {
+  const todos = getTodos();
+  todos.push(todo);
+  saveTodos(todos);
+  loadTodos();
+}
