@@ -47,6 +47,8 @@ document.getElementById("saveNameBtn").addEventListener("click", () => {
   loadTodos();
 });
 
+// tEST
+
 document.getElementById("addTodoBtn").addEventListener("click", () => {
   const todo = newTodoInput.value.trim();
   if (!todo) return;
